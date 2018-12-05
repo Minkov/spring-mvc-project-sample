@@ -1,5 +1,9 @@
 package com.minkov.superheroes.entities;
 
+import javax.persistence.*;
+
+@Entity(name = "superheroes")
+@Table(name = "superheroes")
 public class Superhero {
     private Long id;
     private String name;
@@ -19,6 +23,8 @@ public class Superhero {
         setSecretIdentity(secretIdentity);
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getId() {
         return id;
     }
@@ -27,6 +33,7 @@ public class Superhero {
         this.id = id;
     }
 
+    @Column(nullable = false, unique = true)
     public void setName(String name) {
         this.name = name;
     }
@@ -35,6 +42,7 @@ public class Superhero {
         return name;
     }
 
+    @Column(name = "secret_identity", nullable = false)
     public void setSecretIdentity(String secretIdentity) {
         this.secretIdentity = secretIdentity;
     }

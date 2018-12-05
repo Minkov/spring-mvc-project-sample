@@ -24,7 +24,7 @@ public class SuperheroesApiController {
 
     @GetMapping("/api/superheroes")
     public List<SuperheroViewModel> getAllSuperheroes() {
-        var dtos = this.superheroesService.getAll();
+        var dtos = this.superheroesService.getAllSuperheroes();
 
         return dtos.stream()
                 .map(dto -> modelMapper.map(dto, SuperheroViewModel.class))

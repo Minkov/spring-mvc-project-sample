@@ -25,7 +25,7 @@ public class SuperheroesServiceImpl implements SuperheroesService {
     }
 
     @Override
-    public List<SuperheroItemDto> getAll() {
+    public List<SuperheroItemDto> getAllSuperheroes() {
         return superheroesRepository.findAll()
                 .stream()
                 .map(entity -> mapper.map(entity, SuperheroItemDto.class))

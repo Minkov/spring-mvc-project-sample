@@ -39,7 +39,7 @@ public class SuperheroesServiceTests {
 
     @Test
     public void getAll_whenNoSuperheroes_shouldReturnEmptyList() {
-        var dts = service.getAll();
+        var dts = service.getAllSuperheroes();
         Assert.assertTrue(dts.isEmpty());
     }
 
@@ -47,7 +47,7 @@ public class SuperheroesServiceTests {
     public void getAll_whenSuperheroes_shouldReturnMappedElements() {
         var superhero = new Superhero(1, "SH 1", "SI 1");
         superheroes.add(superhero);
-        var dts = service.getAll();
+        var dts = service.getAllSuperheroes();
         assertEquals(dts.size(), 1);
         var returnedSuperhero = dts.get(0);
         assertEquals(superhero.getId(), returnedSuperhero.getId());
